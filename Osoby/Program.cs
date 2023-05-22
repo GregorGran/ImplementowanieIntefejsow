@@ -20,3 +20,14 @@ var dziecko3 = henryk * maria;
 
 WriteLine($"5! to {Osoba.Silnia(5)}");
 
+static void Henryk_Krzyk(object? sender, EventArgs e)
+{
+    if (sender is null) return;
+    Osoba o = (Osoba)sender;
+    WriteLine($"{o.Nazwisko} złości sie na poziomie: {o.PoziomZlosci}.");
+}
+henryk.Krzycz += Henryk_Krzyk;
+henryk.Szturchnij();
+henryk.Szturchnij();
+henryk.Szturchnij();
+henryk.Szturchnij();
