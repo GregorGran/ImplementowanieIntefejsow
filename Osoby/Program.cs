@@ -31,3 +31,34 @@ henryk.Szturchnij();
 henryk.Szturchnij();
 henryk.Szturchnij();
 henryk.Szturchnij();
+
+System.Collections.Hashtable wyszukiwanieObiektow = new();
+wyszukiwanieObiektow.Add(key: 1, value: "Alpha");
+wyszukiwanieObiektow.Add(key: 2, value: "Beta");
+wyszukiwanieObiektow.Add(key: 3, value: "Gamma");
+wyszukiwanieObiektow.Add(key: henryk, value: "Delta");
+
+int klucz = 2;
+WriteLine(format: $"klucz {klucz} ma wartość {wyszukiwanieObiektow[klucz]}");
+
+WriteLine(format: $"klucz {henryk} ma wartość {wyszukiwanieObiektow[henryk]}");
+
+Osoba[] osoby = { new Osoba { Nazwisko = "Kleoptra" }, new Osoba { Nazwisko = "Ramzes" }, new Osoba { Nazwisko = "Apofis" } };
+WriteLine("Początkowa lista osób:");
+foreach (var osoba in osoby)
+{
+    WriteLine($"{osoba.Nazwisko}");
+}
+WriteLine("Do posortowania użyto zaimplementowanego interfejsu IComparable:");
+//Array.Sort(osoby);
+foreach (var osoba in osoby)
+{
+    WriteLine($"{osoba.Nazwisko}");
+}
+
+WriteLine("Do posortowania użyto implementacji interfejsu IComparer w klasie OsobaComparer:");
+Array.Sort(osoby, new OsobaComparer());
+foreach (var osoba in osoby)
+{
+    WriteLine($"{osoba.Nazwisko}");
+}

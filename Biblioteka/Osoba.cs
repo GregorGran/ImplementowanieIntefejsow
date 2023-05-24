@@ -7,6 +7,12 @@ namespace Biblioteka
         public string? Nazwisko; // znak ? pozwala na wartość null
         public DateTime DataUrodzenia;
         public List<Osoba> Dzieci = new();
+        public int CompareTo(Osoba? inna)
+        {
+            if(Nazwisko is null) return 0;
+            return Nazwisko.CompareTo(inna.Nazwisko);
+            throw new NotImplementedException();
+        }
 
         public void WypiszWKonsoli()
         {
